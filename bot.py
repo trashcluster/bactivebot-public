@@ -3,7 +3,7 @@ import requests
 import re
 from functools import wraps
 from telegram.ext import Updater
-updater = Updater(token='883813261:AAGc4qLy7VWuqa6PudbRTxQ2KMinEstfofs', use_context=True)
+updater = Updater(token='TOKEN', use_context=True)
 
 #idk
 dispatcher = updater.dispatcher
@@ -36,7 +36,7 @@ dispatcher.add_handler(start_handler)
 def playercodeall():
 	codes = []
 	for i in range(10):
-		r = requests.post('http://vps.gopnik.net:8070/index.php/code/player'+str(i+1)+'bactive')
+		r = requests.post('http://STEAM2FASERVER/index.php/code/X')
 		if len(r.text) == 5 :
 			codes.append(r.text)
 		else : 
@@ -46,7 +46,7 @@ def playercodeall():
 
 #fetch specific acc authcode
 def playercode(name):
-	r = requests.post('http://vps.gopnik.net:8070/index.php/code/'+str(name))
+	r = requests.post('http://STEAM2FASERVER/index.php/code/'+str(name))
 	print(r)
 	return(str(name)+' : '+str(r.text))
 
